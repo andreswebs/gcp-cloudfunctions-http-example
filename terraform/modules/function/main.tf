@@ -10,7 +10,10 @@ resource "google_cloudfunctions_function" "this" {
   available_memory_mb = 256
   max_instances       = 5
 
+
   trigger_http = true
+
+  https_trigger_security_level = "SECURE_ALWAYS"
 
   source_archive_bucket = var.code_artifacts_bucket
   source_archive_object = var.function_object
@@ -45,6 +48,9 @@ resource "google_cloud_scheduler_job" "this" {
     http_method = "POST"
     uri         = google_cloudfunctions_function.this.https_trigger_url
     body        = base64encode(var.schedule_http_body)
+    headers = {
+      "Content-Type" = "application/json"
+    }
 
     oidc_token {
       service_account_email = google_service_account.invoker.email
