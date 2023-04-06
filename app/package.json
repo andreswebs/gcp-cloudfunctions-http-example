@@ -1,0 +1,38 @@
+{
+  "name": "function-test-http",
+  "version": "0.0.1",
+  "description": "function-test-http",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "license": "Unlicense",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "clean": "rimraf ./build/*",
+    "compile": "npm run clean && tsc",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "gcp-build": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.1.3"
+  }
+}
