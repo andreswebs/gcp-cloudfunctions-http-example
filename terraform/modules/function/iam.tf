@@ -33,5 +33,5 @@ resource "google_service_account" "invoker" {
 resource "google_cloudfunctions_function_iam_member" "invoker" {
   cloud_function = google_cloudfunctions_function.this.name
   role           = "roles/cloudfunctions.invoker"
-  member         = google_service_account.service_account_invoker.member
+  member         = google_service_account.invoker.member
 }

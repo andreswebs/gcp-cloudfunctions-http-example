@@ -26,7 +26,7 @@ module "function_test" {
   function_name                 = local.function_name
   function_object               = local.function_object
   function_retry                = var.function_retry
-  schedule_enabled              = false
+  schedule_enabled              = true
   schedule_http_body = <<-EOF
     {
       "msg": "ok"

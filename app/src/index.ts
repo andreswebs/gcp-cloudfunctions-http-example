@@ -7,4 +7,5 @@ async function main(data: Record<string, unknown>) {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 http('main', async (req, res) => {
   await main(req.body);
+  return res.status(204).send();
 });

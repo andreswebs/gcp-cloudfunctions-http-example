@@ -53,13 +53,13 @@ variable "schedule_name" {
 variable "schedule_time_zone" {
   type        = string
   description = "Cloud Scheduler job time zone"
-  default     = "UTC"
+  default     = "Etc/UTC"
 }
 
 variable "schedule_cron" {
   type        = string
   description = "Cron expression for backup check trigger"
-  default     = "0/5 * * * *"
+  default     = "*/2 * * * *"
 }
 
 variable "schedule_http_body" {
