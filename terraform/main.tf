@@ -29,7 +29,8 @@ module "function_test" {
   schedule_enabled              = true
   schedule_http_body = <<-EOF
     {
-      "msg": "ok"
+      "msg": "ok",
+      "test": true
     }
   EOF
 }

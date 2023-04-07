@@ -58,8 +58,8 @@ variable "schedule_time_zone" {
 
 variable "schedule_cron" {
   type        = string
-  description = "Cron expression for backup check trigger"
-  default     = "*/2 * * * *"
+  description = "Cron expression for function trigger"
+  default     = "*/15 * * * *"
 }
 
 variable "schedule_http_body" {

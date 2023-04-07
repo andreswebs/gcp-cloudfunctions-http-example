@@ -9,16 +9,14 @@ resource "google_cloudfunctions_function" "this" {
   timeout             = 540
   available_memory_mb = 256
   max_instances       = 5
-
-
-  trigger_http = true
+  trigger_http        = true
 
   https_trigger_security_level = "SECURE_ALWAYS"
 
+  service_account_email = google_service_account.this.email
   source_archive_bucket = var.code_artifacts_bucket
   source_archive_object = var.function_object
 
-  service_account_email = google_service_account.this.email
 
   environment_variables = {
     CLOUDSDK_CORE_PROJECT = data.google_project.this.project_id
